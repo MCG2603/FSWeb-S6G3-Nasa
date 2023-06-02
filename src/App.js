@@ -3,6 +3,7 @@ import "./App.css";
 import axios from 'axios';
 import Image from "./comp/image";
 import You from "./comp/you";
+import styled from 'styled-components';
 
 
 const dummyData={
@@ -30,16 +31,30 @@ axios.get("https://api.nasa.gov/planetary/apod?api_key=fQ1fs2zHdWPQBHLZVq1SsR5Xl
 setVeriler(data.data)});
 
 },[date])
+
+
+const Title1  = styled.h1`
+color: red;
+font-size: 4rem;
+:&hover: black;
+`
+const Parag  = styled.p`
+color: green;
+font-size: 1rem;
+:&hover: black;
+`
+
+
   return (
     <div className="App">
       <input type="date" value={date} onChange={changeHandler} />
-      <h1>{veriler.title} </h1>
+      <Title1>{veriler.title} </Title1>
       {veriler.media_type=="image"  
       ? <Image verilerurl={veriler.url} />
       : <You verilerurl={veriler.url}/>}
-      <p className="image">
+      <Parag>
           {veriler.explanation}
-      </p>
+      </Parag>
       
     </div>
   );

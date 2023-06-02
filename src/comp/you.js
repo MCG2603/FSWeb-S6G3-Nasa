@@ -8,6 +8,7 @@ const You=(props)=>{
     return (
         
    <div>
+
     <iframe width="420" title="Youtube video player" height="315" src={verilerurl}/>
    </div>
 )
